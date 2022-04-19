@@ -6,30 +6,51 @@
         xmlns:local="clr-namespace:combobox"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="Auto" MaxWidth="160"/>
+            <ColumnDefinition Width="Auto" MaxWidth="160"/>
+            <ColumnDefinition Width="Auto" MaxWidth="120"/>
+            <ColumnDefinition Width="Auto" MaxWidth="40"/>
         </Grid.ColumnDefinitions>
-            <Label Grid.Row="2" Grid.Column="0" Content="WPF Combo" BorderBrush="BlueViolet" BorderThickness="2" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="WPF Combo" BorderBrush="BlueViolet" BorderThickness="2" VerticalAlignment="Center"></Label>
         <ComboBox Grid.Row="2" Grid.Column="1" BorderBrush="BlueViolet" BorderThickness="2" VerticalAlignment="Center" ItemsSource="{Binding ComboItemsList}" SelectedIndex="0" >
-                <!--<ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+            <!--<ComboBoxItem>ComboBox Item #1</ComboBoxItem>
                 <ComboBoxItem IsSelected="True">ComboBox Item #2</ComboBoxItem>
                 <ComboBoxItem>ComboBox Item #3</ComboBoxItem>-->
-            </ComboBox>
+        </ComboBox>
     </Grid>
 </Window>

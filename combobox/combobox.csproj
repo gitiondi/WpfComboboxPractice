@@ -11,8 +11,4 @@
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Styles\" />
-  </ItemGroup>
-
 </Project>

@@ -5,7 +5,7 @@
                     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
 
     <Style x:Key="MyComboxItem" TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource MahApps.Styles.ComboBoxItem}">
-        <Setter Property="Background" Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.ValidationSummary1}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />

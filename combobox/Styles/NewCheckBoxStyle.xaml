@@ -1,0 +1,84 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mahappscontrols="http://metro.mahapps.com/winfx/xaml/controls">
+    <ControlTemplate x:Key="CustomCheckBoxControlTemplate" TargetType="{x:Type CheckBox}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftCol" Width="16"/>
+                <ColumnDefinition x:Name="RightCol" Width="*"/>
+            </Grid.ColumnDefinitions>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.55" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="disabled"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="CheckStates">
+                    <VisualState x:Name="Checked">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="checkBox"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unchecked"/>
+                    <VisualState x:Name="Indeterminate">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IndeterminateCheck"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid x:Name="PART_CHECKBOX">
+                <Rectangle Fill="{DynamicResource MahApps.Brushes.Transparent}" Margin="-6,0"/>
+                <Border x:Name="normal" BorderBrush="{StaticResource ControlGreyColor}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="16"/>
+                <Path x:Name="checkBox" Data="M5.41,12.71,2.24,9.53l.71-.71,2.47,2.47,7.65-7.65.71.71Z" Fill="{StaticResource SelectedButtonBlue}" Height="10" Opacity="0" Stretch="Fill" UseLayoutRounding="False" Width="12"/>
+                <!--<Path x:Name="checkBoxA" Data="M8.71,8l3.65,3.65-.71.71L8,8.71,4.35,12.35l-.71-.71L7.29,8,3.65,4.35l.71-.71L8,7.29l3.65-3.65.71.71Z" Fill="{StaticResource ApplicationRedColor}" Height="10" Width="10" Stretch="Fill" UseLayoutRounding="False"/>-->
+                <Rectangle x:Name="IndeterminateCheck" Fill="{StaticResource ControlGreyColor}" Height="2" Opacity="0" Width="10"/>
+                <Border x:Name="disabled" BorderThickness="{TemplateBinding BorderThickness}" Background="{DynamicResource MahApps.Brushes.SemiTransparent}" Height="16" Opacity="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="16"/>
+            </Grid>
+            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" TargetName="normal" Value="{StaticResource MouseOverBlue}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" TargetName="normal" Value="{StaticResource SelectedButtonBlue}"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" TargetName="normal" Value="{StaticResource SelectedButtonBlue}"/>
+            </Trigger>
+            <Trigger Property="FlowDirection" Value="RightToLeft">
+                <Setter Property="LayoutTransform" TargetName="checkBox">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="-1"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="mahappscontrols:ToggleButtonHelper.ContentDirection" Value="RightToLeft">
+                <Setter Property="Padding" Value="0,0,6,0"/>
+                <Setter Property="Width" TargetName="LeftCol" Value="*"/>
+                <Setter Property="Grid.Column" TargetName="PART_CHECKBOX" Value="1"/>
+                <Setter Property="Width" TargetName="RightCol" Value="16"/>
+                <Setter Property="Grid.Column" TargetName="contentPresenter" Value="0"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="NewCheckBoxStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="0 0 30 0"/>
+        <Setter Property="Padding" Value="14,0,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource DefaultFont}"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="Foreground" Value="{StaticResource NavigationButtonActiveIcon}"/>
+        <Setter Property="BorderThickness" Value="1"/> <!-- This line fixes the missing box -->
+        <Setter Property="Template" Value="{StaticResource CustomCheckBoxControlTemplate}"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultErrorTemplate}"></Setter>
+    </Style>
+</ResourceDictionary>

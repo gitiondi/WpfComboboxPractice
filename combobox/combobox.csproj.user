@@ -10,6 +10,9 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\NewCheckBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\NewComboBoxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>

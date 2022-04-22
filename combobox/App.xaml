@@ -14,6 +14,8 @@
                 <ResourceDictionary Source="/Styles/SharedStyles.xaml" />
                 <ResourceDictionary Source="/Styles/ComboBox.xaml" />
                 <ResourceDictionary Source="/Styles/NewComboBoxStyle.xaml" />
+                <ResourceDictionary Source="/Styles/CheckBox.xaml" />
+                <ResourceDictionary Source="/Styles/NewCheckBoxStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
